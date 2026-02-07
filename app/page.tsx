@@ -14,6 +14,7 @@ const INITIAL_INDEX = -1;
 
 export default function Home() {
   const [index, setIndex] = useState(INITIAL_INDEX);
+  const [depth, setDepth] = useState('1');
 
   function newOpening() {
     setIndex(getRandomInt(openingsJson.length));
@@ -53,24 +54,25 @@ export default function Home() {
         <p>Opening Randomizer</p>
       </div>
       <div className={styles.board}>
-        <Chessboard
-          position={renderOpeningFEN()}
-          boardWidth={250}
-          showBoardNotation={false}
-        />
+        <Chessboard position={renderOpeningFEN()} boardWidth={250} showBoardNotation={false}></Chessboard>
       </div>
       <div className={styles.description}>
         {renderOpeningMoves()}
         <br />
         <br />
-        {renderOpeningName()}
+        <i>{renderOpeningName()}</i>
       </div>
-      <div></div>
       <div className={styles.bottomContainer}>
+      	<div className={styles.sliderContainer}>
+      		<p><b>Depth</b>: {depth}</p>
+      		<br />
+      		<input className={styles.newRangeSlider} type="range" min="1" max="10" step="1" value={depth} onChange={e => setDepth(e.target.value)}></input>
+      	</div>
+      	<br />
+      	<br />
         <button className={styles.newOpeningButton} onClick={newOpening}>
           New Opening!
         </button>
-        ;
         <div className={styles.footer}>
           2024 ©{" "}
           <a href="https://github.com/glorialiu/chess_openings">
@@ -81,6 +83,7 @@ export default function Home() {
             <u>ECO</u>
           </a>
           .
+          <br />
         </div>
       </div>
     </main>
