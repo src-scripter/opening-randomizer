@@ -1,9 +1,6 @@
 # Random Chess Opening Generator
 
-This project was inspired by being bored of playing the same openings over and over, sometimes a little external randomness is needed to find new inspiration. hosted at www.randomchessopenings.com
-
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project was inspired by being bored of playing the same openings over and over, sometimes a little external randomness is needed to find new inspiration. Hosted at [www.randomchessopenings.com](https://www.randomchessopenings.com). Openings compiled by [hayatbiralem/eco.json](https://github.com/hayatbiralem/eco.json).
 
 ## Getting Started
 
