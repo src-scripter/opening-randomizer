@@ -19,9 +19,10 @@ export default function Home() {
   function newOpening() {
     setIndex(getRandomInt(openingsJson.length));
   }
+  
   function getRandomInt(max: number) {
     var newRandom = Math.floor(Math.random() * max);
-    while (newRandom == index) {
+    while (newRandom == index || !openingsJson[newRandom].moves.includes(`${Number(depth)}.`) || openingsJson[newRandom].moves.includes(`${Number(depth) + 1}.`)) {
       newRandom = Math.floor(Math.random() * max);
     }
     return newRandom;
