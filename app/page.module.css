@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 2rem 0rem;
+  padding: 2rem 1rem 0rem;
   min-height: 100vh;
   background-color: #ebecd0;
 }
@@ -32,7 +32,7 @@
 }
 
 .bottomContainer {
-  padding: 20px 1px 20px;
+  padding: 1rem 1rem;
   bottom: 0;
   text-align: center;
 }
@@ -43,8 +43,9 @@
   color: black;
   font-family: var(--font-mono);
   background-color: #779556;
-  padding: 10px 30px;
+  padding: 5px 10px;
   border-radius: 3px;
+  margin: 0.5rem;
 }
 
 .newRangeSlider {

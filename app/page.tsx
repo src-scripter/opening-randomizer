@@ -16,14 +16,24 @@ export default function Home() {
   const [index, setIndex] = useState(INITIAL_INDEX);
   const [depth, setDepth] = useState('1');
 
-  function newOpening() {
-    setIndex(getRandomInt(openingsJson.length));
+  function newOpening(random: boolean) {
+  	if (random) {
+  	  setIndex(getRandomInt(openingsJson.length, true));
+  	} else {
+      setIndex(getRandomInt(openingsJson.length, false));
+    }
   }
   
-  function getRandomInt(max: number) {
+  function getRandomInt(max: number, random: boolean) {
     var newRandom = Math.floor(Math.random() * max);
-    while (newRandom == index || !openingsJson[newRandom].moves.includes(`${Number(depth)}.`) || openingsJson[newRandom].moves.includes(`${Number(depth) + 1}.`)) {
-      newRandom = Math.floor(Math.random() * max);
+    if (random === true){
+	  while (newRandom === index) {
+	  	newRandom = Math.floor(Math.random() * max);
+	  }
+    } else {
+      while (newRandom === index || !openingsJson[newRandom].moves.includes(`${Number(depth)}.`) || openingsJson[newRandom].moves.includes(`${Number(depth) + 1}.`)) {
+    	newRandom = Math.floor(Math.random() * max);
+      }
     }
     return newRandom;
   }
@@ -70,9 +80,12 @@ export default function Home() {
       		<input className={styles.newRangeSlider} type="range" min="1" max="10" step="1" value={depth} onChange={e => setDepth(e.target.value)}></input>
       	</div>
       	<br />
-      	<br />
-        <button className={styles.newOpeningButton} onClick={newOpening}>
-          New Opening!
+        <button className={styles.newOpeningButton} onClick={() => newOpening(false)}>
+          Generate
+        </button>
+        <br />
+        <button className={styles.newOpeningButton} onClick={() => newOpening(true)}>
+          Random
         </button>
         <div className={styles.footer}>
           2024 ©{" "}
