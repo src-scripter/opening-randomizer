@@ -80,6 +80,7 @@
 
 .sliderContainer {
 	font-family: var(--font-mono);
+	color: black;
 }
 
 .footer {
